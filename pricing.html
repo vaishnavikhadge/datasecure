@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personalized Service Pricing</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f9f8;
+      margin: 0;
+      padding: 2rem;
+      color: #222;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+    }
+    p.description {
+      text-align: center;
+      color: #555;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .service-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #e8f5e9;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      border-left: 5px solid #2e7d32;
+      box-shadow: 0 3px 7px rgba(46, 125, 50, 0.15);
+      transition: background-color 0.3s ease;
+    }
+    .service-item:hover {
+      background: #c8e6c9;
+    }
+    .service-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1b5e20;
+    }
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+    }
+    .qty-wrapper {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      color: #2e7d32;
+      font-weight: 600;
+    }
+    .qty-wrapper label {
+      font-size: 1rem;
+      user-select: none;
+    }
+    .qty-input {
+      width: 60px;
+      padding: 6px 8px;
+      border: 2px solid #81c784;
+      border-radius: 5px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .qty-input:focus {
+      border-color: #388e3c;
+      box-shadow: 0 0 5px #388e3c;
+    }
+    .price-tag {
+      font-weight: 700;
+      color: #1b5e20;
+      font-size: 1rem;
+      min-width: 120px;
+      text-align: right;
+    }
+    #totalPrice {
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #2e7d32;
+      text-align: center;
+    }
+    .cta {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+    .cta button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 5px 15px rgba(46,125,50,0.3);
+      user-select: none;
+    }
+    .cta button:disabled {
+      background-color: #a5d6a7;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .cta button:hover:not(:disabled) {
+      background-color: #1b5e20;
+    }
+    @media (max-width: 600px) {
+      .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+      .price-tag {
+        text-align: left;
+        min-width: auto;
+      }
+      .qty-wrapper {
+        justify-content: flex-start;
+      }
+      .cta {
+        flex-direction: column;
+      }
+      .cta button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Personalized Service Pricing</h1>
+    <p class="description">Select your required services and specify quantities where applicable. Get an instant price estimate and proceed to payment.</p>
+
+    <form id="pricingForm" autocomplete="off" novalidate>
+      <!-- Service Item Template -->
+      <div class="service-item">
+        <label for="service-monitoring" class="service-label">
+          <input type="checkbox" id="service-monitoring" data-price="1000" />
+          Continuous Database Monitoring
+        </label>
+        <div class="qty-wrapper">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="qty-input" disabled />
+        </div>
+        <div class="price-tag">₹1,000 / unit</div>
+      </div>
+
+      <div class="service-item">
+        <label for="service-sql" class="service-label">
+          <input type="checkbox" id="service-sql" data-price="1500" />
+          SQL Optimization Services
+        </label>
+        <div class="qty-wrapper">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="qty-input" disabled />
+        </div>
+        <div class="price-tag">₹1,500 / unit</div>
+      </div>
+
+      <div class="service-item">
+        <label for="service-threat" class="service-label">
+          <input type="checkbox" id="service-threat" data-price="500" />
+          Threat Detection & Prevention
+        </label>
+        <div class="qty-wrapper">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="qty-input" disabled />
+        </div>
+        <div class="price-tag">₹500 / unit</div>
+      </div>
+
+      <div class="service-item">
+        <label for="service-backup" class="service-label">
+          <input type="checkbox" id="service-backup" data-price="700" />
+          Automated Backup Solutions
+        </label>
+        <div class="qty-wrapper">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="qty-input" disabled />
+        </div>
+        <div class="price-tag">₹700 / unit</div>
+      </div>
+
+      <div class="service-item">
+        <label for="service-training" class="service-label">
+          <input type="checkbox" id="service-training" data-price="800" />
+          Training & Support
+        </label>
+        <div class="qty-wrapper">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="qty-input" disabled />
+        </div>
+        <div class="price-tag">₹800 / session</div>
+      </div>
+
+      <div class="service-item">
+        <label for="service-health" class="service-label">
+          <input type="checkbox" id="service-health" data-price="1200" />
+          Health Checks & Reporting
+        </label>
+        <div class="qty-wrapper">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="qty-input" disabled />
+        </div>
+        <div class="price-tag">₹1,200 / unit</div>
+      </div>
+
+      <div class="service-item">
+        <label for="service-consult" class="service-label">
+          <input type="checkbox" id="service-consult" data-price="2500" />
+          Consultancy Services
+        </label>
+        <div class="qty-wrapper">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="qty-input" disabled />
+        </div>
+        <div class="price-tag">₹2,500 / hour</div>
+      </div>
+
+      <div id="totalPrice">Total Estimated Price: ₹0</div>
+
+      <div class="cta">
+        <button type="button" id="requestQuoteBtn">Request Quote</button>
+        <button type="button" id="paymentBtn" disabled>Proceed to Payment</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    (() => {
+      const form = document.getElementById('pricingForm');
+      const totalPriceDiv = document.getElementById('totalPrice');
+      const paymentBtn = document.getElementById('paymentBtn');
+      const requestQuoteBtn = document.getElementById('requestQuoteBtn');
+
+      // All services with qty enabled
+      // (In this example, all services allow quantity input when checked)
+      const services = form.querySelectorAll('.service-item');
+
+      services.forEach(item => {
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        const qtyWrapper = item.querySelector('.qty-wrapper');
+        const qtyInput = qtyWrapper.querySelector('.qty-input');
+
+        // Initially hide and disable quantity input
+        qtyWrapper.style.display = 'none';
+        qtyInput.disabled = true;
+
+        checkbox.addEventListener('change', () => {
+          if (checkbox.checked) {
+            qtyWrapper.style.display = 'flex';
+            qtyInput.disabled = false;
+          } else {
+            qtyWrapper.style.display = 'none';
+            qtyInput.disabled = true;
+            qtyInput.value = 1;
+          }
+          calculateTotal();
+        });
+
+        qtyInput.addEventListener('input', () => {
+          // Enforce minimum quantity 1
+          if (qtyInput.value === '' || parseInt(qtyInput.value) < 1) {
+            qtyInput.value = 1;
+          }
+          calculateTotal();
+        });
+      });
+
+      function calculateTotal() {
+        let total = 0;
+        services.forEach(item => {
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          if (!checkbox.checked) return;
+
+          const price = parseInt(checkbox.dataset.price);
+          const qtyInput = item.querySelector('.qty-input');
+          const qty = qtyInput && !qtyInput.disabled ? parseInt(qtyInput.value) : 1;
+          total += price * qty;
+        });
+        totalPriceDiv.textContent = `Total Estimated Price: ₹${total.toLocaleString()}`;
+
+        paymentBtn.disabled = total === 0;
+      }
+
+      paymentBtn.addEventListener('click', () => {
+        alert('Redirecting to payment gateway...');
+        // TODO: Replace below with real payment gateway integration
+        // window.location.href = 'payment.html';
+      });
+
+      requestQuoteBtn.addEventListener('click', () => {
+        alert('Thank you! Your quote request has been received. We will contact you shortly.');
+      });
+
+      calculateTotal();
+    })();
+  </script>
+</body>
+</html>

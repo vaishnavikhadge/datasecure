@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Encryption – Data Secure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #27ae60;
+      --green-dark: #1e874b;
+      --bg-light: #f0faf0;
+      --text-dark: #1b3a1b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      padding: 1.5rem;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--green), var(--green-dark));
+      padding: 2rem;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    header div {
+      flex-grow: 1;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+    }
+
+    header p {
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    .btn-login {
+      background-color: #fff;
+      color: var(--green);
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      white-space: nowrap;
+    }
+
+    .btn-login:hover {
+      background-color: var(--green-dark);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(30, 135, 75, 0.4);
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+    }
+
+    section {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(23, 32, 27, 0.08);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: #196f3d;
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-top: 0.7rem;
+      line-height: 1.6;
+      color: #2c3e2c;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #145a32;
+    }
+
+    .contact-section {
+      text-align: center;
+      padding-top: 1rem;
+    }
+
+    .contact-section a {
+      display: inline-block;
+      background-color: var(--green);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .contact-section a:hover {
+      background-color: var(--green-dark);
+      box-shadow: 0 8px 25px rgba(30, 135, 75, 0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      color: #196f3d;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .btn-login {
+        margin-top: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Data Secure</h1>
+      <p>AI-Powered Encryption & Security for Your Data</p>
+    </div>
+    <a href="login.html" class="btn-login">Login</a>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is Data Encryption?</h2>
+      <p>Data encryption converts your data into a secure code to prevent unauthorized access. Leveraging cutting-edge AI technology, our encryption solutions proactively identify and block threats before they happen, ensuring maximum data protection.</p>
+    </section>
+
+    <section>
+      <h2>Our AI-Powered Encryption Services</h2>
+      <h3>1. End-to-End Encryption with AI Threat Detection</h3>
+      <p>Data is encrypted on the sender’s device and decrypted only by the recipient. AI continuously monitors data flow to detect suspicious activity and instantly react.</p>
+
+      <h3>2. At-Rest Encryption with Smart Key Management</h3>
+      <p>We protect your stored data with AES-256 encryption and use AI-driven key management for enhanced security and automatic key rotation.</p>
+
+      <h3>3. In-Transit Encryption Secured by AI</h3>
+      <p>Our solutions secure data in transit using TLS/SSL protocols, augmented with AI-based anomaly detection to prevent interception and data leaks.</p>
+
+      <h3>4. AI-Enhanced Compliance & Reporting</h3>
+      <p>Stay compliant effortlessly with AI tools that automate audits, generate reports, and suggest security improvements aligned with GDPR, HIPAA, and more.</p>
+    </section>
+
+    <section>
+      <h2>Why Choose Data Secure?</h2>
+      <ul>
+        <li><span class="highlight">AI-Powered Security:</span> Intelligent, adaptive defenses that evolve with emerging threats.</li>
+        <li><span class="highlight">Strong Encryption Algorithms:</span> Industry standards like AES, RSA, ECC.</li>
+        <li><span class="highlight">Compliance Ready:</span> Fully compliant with GDPR, HIPAA, and other regulations.</li>
+        <li><span class="highlight">Trusted Experts & 24/7 Support:</span> Certified professionals always ready to assist.</li>
+      </ul>
+    </section>
+
+    <section class="contact-section">
+      <h2>Secure Your Data with AI Today</h2>
+      <p>Partner with Data Secure for smart, AI-driven encryption solutions tailored to your needs.</p>
+      <a href="mailto:encrypt@datasecure.com">Contact Us</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Data Secure. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Data Security Solutions - Top-notch data encryption, firewall protection, and cloud security services for businesses and individuals." />
+  <meta name="keywords" content="data security, encryption, firewall, cloud security, data protection" />
+  <meta name="author" content="Data Security Solutions" />
+  <title>Data Security Solutions</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Link -->
+
+  <script defer src="script.js"></script> <!-- External JS -->
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <a href="#" class="logo" aria-label="GreenSecure Home">
+      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-hidden="true" focusable="false">
+        <path d="M32 2 C18 18, 12 36, 32 62 C52 36, 46 18, 32 2 Z" fill="none" />
+        <line x1="32" y1="20" x2="32" y2="44" />
+      </svg>
+      <span class="logo-text">GreenSecure</span>
+    </a>
+    <a href="#login" class="btn-login" role="button">Login</a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero" role="region" aria-label="Hero Section">
+      <div class="hero-content">
+        <h1><i>Protect Your Data with</i><br /><span class="highlight"><i>Advanced Security</i></span></h1>
+        <p><i>Keep your information safe with our state-of-the-art encryption and security services.</i></p>
+        <a href="#services" class="cta-button"><i>Explore Our Services</i></a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" role="region" aria-label="About Us">
+      <div class="container">
+        <h2><i>About Us</i></h2>
+        <p><i>We provide top-notch data security solutions for businesses and individuals, ensuring your data stays safe from threats.</i></p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services" role="region" aria-label="Our Services">
+      <div class="container">
+        <h2><i>Our Services</i></h2>
+        <center>
+          <section>
+          <div class="service-item">
+            <h3><i>Data Encryption</i></h3>
+            <a href="https://www.geeksforgeeks.org/what-is-data-encryption/" target="_blank" rel="noopener noreferrer">
+              <img src="https://th.bing.com/th/id/R.e356b853c906fc6de58d99639623216f?rik=oxCVTFWdFBV%2f%2fA&pid=ImgRaw&r=0" width="500" alt="Data Encryption" />
+            </a>
+            <p><i>Protect your sensitive data with high-level encryption techniques to ensure it remains secure.</i></p>
+          </div><br /></section>
+          
+          <section>
+          <div class="service-item">
+            <h3><i>Firewall Protection</i></h3>
+            <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwj6r7rn4pCMAxXF7BYFHVO5Am4YABABGgJ0bA&co=1&gclid=Cj0KCQjwkN--BhDkARIsAD_mnIphHsU75fo05stjMOmoZUDDlAyMdIc0N8K5NQQf9E5gO3J3dOz7HIYaAnJMEALw_wcB" target="_blank" rel="noopener noreferrer">
+              <img src="https://www.rivialsecurity.com/hubfs/AdobeStock_309613855%20copy.jpg" width="500" alt="Firewall Protection" />
+            </a>
+            <p><i>Our firewalls block unauthorized access and safeguard your network from cyber attacks.</i></p>
+          </div><br /></section>
+           
+          <section>
+          <div class="service-item">
+            <h3><i>Cloud Security</i></h3>
+            <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">
+              <img src="https://insights.comforte.com/hubfs/blog%20header%20cloud%20security-1.jpeg" width="500" alt="Cloud Security" />
+            </a>
+            <p><i>We offer cloud data protection, keeping your files and systems secure in the cloud environment.</i></p>
+          </div>
+          </section>
+        </center>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" role="region" aria-label="Contact Us">
+      <div class="container">
+        <h2><i>Contact Us</i></h2>
+        <p><i>Have questions or need a consultation? Reach out to us today.</i></p>
+        <form action="#" method="post">
+          <label for="name"><i>Your Name</i></label>
+          <input id="name" type="text" name="name" placeholder="Your Name" required />
+
+          <label for="email"><i>Your Email</i></label>
+          <input id="email" type="email" name="email" placeholder="Your Email" required />
+
+          <label for="message"><i>Your Message</i></label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+          <button type="submit" class="cta-button"><i>Send Message</i></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button onclick="topFunction()" id="myBtn" title="Go to top" aria-label="Scroll to top"><i>back to top</i></button>
+
+  <!-- Footer -->
+  <footer>
+    <p><i>&copy; 2025 Data Security Solutions. All rights reserved.</i></p>
+  </footer>
+
+  <!-- JavaScript for Scroll to Top -->
+  <script>
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        mybutton.classList.add("show");
+      } else {
+        mybutton.classList.remove("show");
+      }
+    }
+
+    function topFunction() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+
+

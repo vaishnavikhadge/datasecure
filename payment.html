@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Payment | DataSecure AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f9f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .payment-box {
+      background: #fff;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      max-width: 450px;
+      text-align: center;
+    }
+
+    .payment-box h1 {
+      color: #2e7d32;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .payment-box input[type="number"],
+    .payment-box input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+      border: 2px solid #81c784;
+      border-radius: 6px;
+    }
+
+    .payment-box button {
+      padding: 0.9rem 2rem;
+      background: #2e7d32;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .payment-box button:hover {
+      background: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-box">
+    <h1>Complete Your Payment</h1>
+    <input type="email" id="userEmail" placeholder="Enter your email" required />
+    <input type="number" id="amountInput" placeholder="Amount (INR)" min="1" required />
+    <button id="payNow">Pay Now</button>
+  </div>
+
+  <script>
+    document.getElementById('payNow').addEventListener('click', () => {
+      const amountInput = document.getElementById('amountInput').value;
+      const email = document.getElementById('userEmail').value;
+
+      if (!amountInput || amountInput <= 0 || !email) {
+        alert("Please enter a valid email and amount.");
+        return;
+      }
+
+      const options = {
+        key: "rzp_test_YourKeyHere", // 🟡 Replace with your Razorpay Test API Key
+        amount: amountInput * 100, // amount in paise
+        currency: "INR",
+        name: "DataSecure AI Services",
+        description: "Secure Payment for AI Services",
+        prefill: {
+          email: email
+        },
+        handler: function (response) {
+          alert(`✅ Payment Successful!\nPayment ID: ${response.razorpay_payment_id}`);
+          // You can redirect or send to backend for confirmation here
+        },
+        theme: {
+          color: "#2e7d32"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    });
+  </script>
+</body>
+</html>

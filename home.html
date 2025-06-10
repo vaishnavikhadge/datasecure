@@ -1,153 +1,388 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+  <!DOCTYPE html>
+ <html lang="en">
+ <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Data Security Solutions - Top-notch data encryption, firewall protection, and cloud security services for businesses and individuals." />
   <meta name="keywords" content="data security, encryption, firewall, cloud security, data protection" />
   <meta name="author" content="Data Security Solutions" />
   <title>Data Security Solutions</title>
+ 
 
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Font Link -->
+ 
 
   <script defer src="script.js"></script> <!-- External JS -->
-</head>
-<body>
+  <style>
+  /* Italic text replacement for <i> */
+  .italic-text {
+  font-style: italic;
+  }
+ 
+
+  /* Search bar container and form */
+  .search-bar-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  }
+ 
+
+  .search-form {
+  width: 100%;
+  display: flex;
+  border: 2px solid #4caf50;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+ 
+
+  .search-form input[type="search"] {
+  flex-grow: 1;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  border-radius: 30px 0 0 30px;
+  }
+ 
+
+  .search-form button {
+  background: #4caf50;
+  border: none;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0 30px 30px 0;
+  transition: background-color 0.3s ease;
+  }
+ 
+
+  .search-form button:hover,
+  .search-form button:focus {
+  background: #388e3c;
+  outline: none;
+  }
+ 
+
+  /* Smooth scroll for anchor links */
+  html {
+  scroll-behavior: smooth;
+  }
+ 
+
+  /* Back to top button */
+  #back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #4caf50;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 1000;
+  }
+ 
+
+  #back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  }
+ 
+
+  #back-to-top:hover,
+  #back-to-top:focus {
+  background: #388e3c;
+  outline: none;
+  }
+ 
+
+  /* Keyboard focus visible */
+  a:focus,
+  button:focus,
+  input:focus {
+  outline: 3px solid #4caf50;
+  outline-offset: 2px;
+  }
+ 
+
+  /* Dropdown Menu Styles */
+  .dropdown-toggle {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  }
+ 
+
+  .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  min-width: 160px;
+  }
+ 
+
+  .dropdown-menu a {
+  color: #333;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s ease;
+  }
+ 
+
+  .dropdown-menu a:hover {
+  background-color: #e9e9e9;
+  }
+ 
+
+  /* Show the dropdown menu on hover */
+  .dropdown-toggle:hover + .dropdown-menu,
+  .dropdown-menu:hover {
+  display: block;
+  }
+ 
+
+  /* Mobile-Friendly Dropdown */
+  @media (max-width: 768px) {
+  .dropdown-menu {
+  position: static;
+  border: none;
+  box-shadow: none;
+  display: none; /* Initially hidden */
+  }
+ 
+
+  .dropdown-toggle:hover + .dropdown-menu,
+  .dropdown-menu:hover {
+  display: block; /* Show on hover */
+  }
+  }
+  </style>
+ </head>
+ <body>
+ 
 
   <!-- Navigation Bar -->
   <header>
-    <a href="#" class="logo" aria-label="DataSecure Home">
-      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-hidden="true" focusable="false">
-        <path d="M32 2 C18 18, 12 36, 32 62 C52 36, 46 18, 32 2 Z" fill="none" />
-        <line x1="32" y1="20" x2="32" y2="44" />
-      </svg>
-      <span class="logo-text">DataSecure</span>
-    </a>
+  <a href="#" class="logo" aria-label="DataSecure Home">
+  <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-hidden="true" focusable="false">
+  <path d="M32 2 C18 18, 12 36, 32 62 C52 36, 46 18, 32 2 Z" fill="none" />
+  <line x1="32" y1="20" x2="32" y2="44" />
+  </svg>
+  <span class="logo-text">DataSecure</span>
+  </a>
+ 
 
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#features">Features</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <nav class="nav" aria-label="Main navigation">
+  <a href="#features" class="dropdown-toggle">Features</a>
+  <div class="dropdown-menu">
+  <a href="#ai-detection">AI Threat Detection</a>
+  <a href="#encryption">End-to-End Encryption</a>
+  <a href="#compliance">Data Compliance Tools</a>
+  <a href="#monitoring">Real-Time Monitoring</a>
+  </div>
+  <a href="#services">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="#innovative-features">Features</a>
+  </nav>
+ 
 
-    <a href="login.html" class="btn-login" role="button">Login</a>
+  <a href="login.html" class="btn-login" role="button">Login</a>
   </header>
+ 
+
+  <!-- Search Bar Section -->
+  <div class="search-bar-container" role="search" aria-label="Site search">
+  <form action="searchbar.html" method="get" class="search-form">
+  <input
+  type="search"
+  name="q"
+  placeholder="Search services, features, pricing..."
+  aria-label="Search through site content"
+  required
+  autocomplete="off"
+  />
+  <button type="submit">Search</button>
+  </form>
+  </div>
+ 
 
   <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
-    <section id="home" class="hero" role="region" aria-label="Hero Section">
-      <div class="hero-content">
-        <h1><i>Protect Your Data with</i><br /><span class="highlight"><i>Advanced Security</i></span></h1>
-        <p><i>Keep your information safe with our state-of-the-art encryption and security services.</i></p>
-        <a href="#services" class="cta-button"><i>Explore Our Services</i></a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero" role="region" aria-label="Hero Section">
+  <div class="hero-content">
+  <h1><span class="italic-text">Protect Your Data with</span><br /><span class="highlight italic-text">Advanced Security</span></h1>
+  <p class="italic-text">Keep your information safe with our state-of-the-art encryption and security services.</p>
+  <a href="#services" class="cta-button italic-text">Explore Our Services</a>
+  </div>
+  </section>
+ 
 
-    <!-- About Section -->
-    <section id="about" class="about" role="region" aria-label="About Us">
-      <div class="container">
-        <h2><i>About Us</i></h2>
-        <p><i>We provide top-notch data security solutions for businesses and individuals, ensuring your data stays safe from threats.</i></p>
-      </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="about" role="region" aria-label="About Us">
+  <div class="container">
+  <div class="text-content">
+  <h2>About Us</h2>
+  <p>We provide top-notch data security solutions for businesses and individuals, ensuring your data stays safe from threats. Our AI-driven systems are designed to detect, prevent, and respond to cyber threats before they can impact your organization.</p>
+  </div>
+  <div class="about-image">
+  <img src="images/about.png" alt="About DataSecure Team" />
+  </div>
+  </div>
+ </section>
+ 
 
-    <!-- Services Section -->
-    <section id="services" class="services" role="region" aria-label="Our Services">
-      <div class="container">
-        <h2><i>Our Services</i></h2>
-        <center>
-          <section>
-            <div class="service-item">
-              <h3><i>AI-Powered Threat Detection & Prevention</i></h3>
-              <a href="https://www.cisco.com/c/en/us/products/security/advanced-malware-protection/index.html" target="_blank" rel="noopener noreferrer">
-                <img src="images/data.jpg" width="500" alt="AI Threat Detection" />
-              </a>
-              <p><i>Leverages machine learning models to continuously monitor network traffic and user behavior, detecting anomalies and potential cyber threats in real time. This proactive defense helps prevent attacks such as phishing, ransomware, and insider threats before they cause damage.</i></p>
-            </div><br />
-          </section>
+  <!-- Services Section -->
+  <section id="services" class="services" role="region" aria-label="Our Services">
+  <div class="services-container">
+  <h2 class="section-title">We Provide</h2>
+  <div class="services-grid">
+  <div class="service-item">
+  <i class="fas fa-shield-alt fa-3x"></i>
+  <h3>AI-Powered Threat Detection & Prevention</h3>
+  <p>Leverages machine learning models to continuously monitor network traffic and user behavior, detecting anomalies and potential cyber threats in real time. This proactive defense helps prevent attacks such as phishing, ransomware, and insider threats before they cause damage.</p>
+  <a href="https://www.cisco.com/c/en/us/products/security/advanced-malware-protection/index.html" target="_blank" rel="noopener noreferrer" aria-label="Learn more about AI-Powered Threat Detection & Prevention">Learn More</a>
+  </div>
+ 
 
-          <section>
-            <div class="service-item">
-              <h3><i>Intelligent Access Management</i></h3>
-              <a href="https://www.okta.com/solutions/identity-access-management/" target="_blank" rel="noopener noreferrer">
-                <img src="images/access.jpg" width="500" alt="Intelligent Access Management" />
-              </a>
-              <p><i>Uses AI algorithms to dynamically control and adapt user access privileges based on behavior analysis and risk assessment. Features include multi-factor authentication, biometric recognition, and context-aware access controls that reduce unauthorized entry risks.</i></p>
-            </div><br />
-          </section>
+  <div class="service-item">
+  <i class="fas fa-key fa-3x"></i>
+  <h3>Intelligent Access Management</h3>
+  <p>Uses AI algorithms to dynamically control and adapt user access privileges based on behavior analysis and risk assessment. Features include multi-factor authentication, biometric recognition, and context-aware access controls that reduce unauthorized entry risks.</p>
+  <a href="https://www.okta.com/solutions/identity-access-management/" target="_blank" rel="noopener noreferrer" aria-label="Learn more about Intelligent Access Management">Learn More</a>
+  </div>
+ 
 
-          <section>
-            <div class="service-item">
-              <h3><i>Automated Incident Response</i></h3>
-              <a href="https://www.paloaltonetworks.com/cortex/xsoar" target="_blank" rel="noopener noreferrer">
-                <img src="images/incident.jpg" width="500" alt="Automated Incident Response" />
-              </a>
-              <p><i>Leverage AI to automate security workflows and rapidly mitigate threats, reducing manual effort and response time.</i></p>
-            </div>
-          </section>
-        </center>
-      </div>
-    </section>
+  <div class="service-item">
+  <i class="fas fa-exclamation-triangle fa-3x"></i>
+  <h3>Automated Incident Response</h3>
+  <p>Leverage AI to automate security workflows and rapidly mitigate threats, reducing manual effort and response time.</p>
+  <a href="https://www.paloaltonetworks.com/cortex/xsoar" target="_blank" rel="noopener noreferrer" aria-label="Learn more about Automated Incident Response">Learn More</a>
+  </div>
+  </div>
+  </div>
+ </section>
+ 
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact" role="region" aria-label="Contact Us">
-      <div class="container">
-        <h2><i>Contact Us</i></h2>
-        <p><i>Have questions or need a consultation? Reach out to us today.</i></p>
-        <form action="#" method="post">
-          <label for="name"><i>Your Name</i></label>
-          <input id="name" type="text" name="name" placeholder="Your Name" required />
+  <!-- Innovative Features Section -->
+  <section id="innovative-features" class="innovative-features" role="region" aria-label="Innovative Features">
+  <h2 class="section-title">Innovative Features</h2>
+  <div class="features-scroll-container">
+  <div class="feature-item">
+  <img src="images/data.jpg" alt="AI-Powered Threat Detection" />
+  <h3>AI-Powered Threat Detection</h3>
+  <p>Advanced AI algorithms detect and prevent cyber threats in real-time.</p>
+  </div>
+  <div class="feature-item">
+  <img src="images/blockchain.png" alt="Blockchain Data Integrity" style="height:200px;" />
+  <h3>Blockchain Data Integrity</h3>
+  <p>Ensure data integrity with blockchain-based verification.</p>
+  </div>
+  <div class="feature-item">
+  <img src="images/incident.jpg" alt="Automated Incident Response" />
+  <h3>Automated Incident Response</h3>
+  <p>Automated workflows for rapid threat mitigation.</p>
+  </div>
+  <div class="feature-item">
+  <img src="images/risk.png" alt="Predictive Risk Analysis" />
+  <h3>Predictive Risk Analysis</h3>
+  <p>Proactive risk analysis to anticipate and prevent security breaches.</p>
+  </div>
+  <div class="feature-item">
+  <img src="images/access.jpg" alt="Adaptive Access Control" />
+  <h3>Adaptive Access Control</h3>
+  <p>Dynamic access control based on user behavior and risk assessment.</p>
+  </div>
+  </div>
+ </section>
+ 
 
-          <label for="email"><i>Your Email</i></label>
-          <input id="email" type="email" name="email" placeholder="Your Email" required />
+  <!-- Chatbot -->
+ <div class="chatbot-container" id="chatbot">
+  <div class="chatbot-header">
+  <h4>🤖 Chat with Us</h4>
+  <button onclick="toggleChat()" class="chat-close-btn">×</button>
+  </div>
+  <div class="chatbot-messages" id="chatbot-messages">
+  <div class="bot-message">Hi there! How can I assist you today?</div>
+  </div>
+  <form onsubmit="sendMessage(event)" class="chatbot-form">
+  <input type="text" id="user-input" placeholder="Type your message..." required />
+  <button type="submit">Send</button>
+  </form>
+ </div>
+ 
 
-          <label for="message"><i>Your Message</i></label>
-          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+ <!-- Chat Toggle Button -->
+ <button class="chatbot-toggle" onclick="toggleChat()">💬</button>
+ 
 
-          <button type="submit" class="cta-button"><i>Send Message</i></button>
-        </form>
-      </div>
-    </section>
   </main>
+ 
 
   <!-- Scroll to Top Button -->
-  <button onclick="topFunction()" id="myBtn" title="Go to top" aria-label="Scroll to top"><i>back to top</i></button>
+  <button id="back-to-top" title="Back to Top" aria-label="Scroll to top">↑</button>
+ 
 
   <!-- Footer -->
   <footer>
-    <p><i>&copy; 2025 Data Security Solutions. All rights reserved.</i></p>
+  <div class="footer-container">
+  <div class="footer-section">
+  <h4>About DataSecure</h4>
+  <p>We offer advanced data security solutions including threat detection, access control, and automated response systems.</p>
+  </div>
+ 
+
+  <div class="footer-section">
+  <h4>Quick Links</h4>
+  <ul>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="pricing.html">Pricing</a></li>
+  <li><a href="#innovative-features">Features</a></li>
+  <li><a href="policy.html">Cookie Policy</a></li>
+  </ul>
+  </div>
+ 
+
+  <div class="footer-section">
+  <h4>Contact Info</h4>
+  <p>Email: support@datasecure.com</p>
+  <p>Phone: +91 99999 88888</p>
+  <p>Location: Pune, India</p>
+  </div>
+  </div>
+ 
+
+  <div class="footer-bottom">
+  <p>&copy; 2025 Data Security Solutions. All rights reserved.</p>
+  </div>
   </footer>
+ 
 
-  <!-- JavaScript for Scroll to Top -->
-  <script>
-    var mybutton = document.getElementById("myBtn");
-    window.onscroll = function () {
-      scrollFunction();
-    };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        mybutton.classList.add("show");
-      } else {
-        mybutton.classList.remove("show");
-      }
-    }
-
-    function topFunction() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  </script>
-
-</body>
-</html>
-
-
-
-
+  <!--css js
+ 

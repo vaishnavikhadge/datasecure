@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI-Powered Threat Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f1f7fa;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 3.5rem;
+      text-align: center;
+      color: #0e1a33;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .section p.subtext {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #333;
+      max-width: 850px;
+      margin: 0 auto 60px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 35px 30px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      color: #14284d;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 1.3rem;
+      display: none;
+      margin-top: 12px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .card.active p {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .footer {
+      text-align: center;
+      background: #1d3557;
+      color: white;
+      padding: 35px;
+      font-size: 1.2rem;
+      margin-top: 70px;
+    }
+
+    @media (max-width: 768px) {
+      .section h2 {
+        font-size: 2.5rem;
+      }
+
+      .section p.subtext {
+        font-size: 1.2rem;
+      }
+
+      .card h3 {
+        font-size: 1.6rem;
+      }
+
+      .card p {
+        font-size: 1.1rem;
+      }
+
+      .footer {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AI-Powered Threat Detection Section -->
+  <section class="section">
+    <h2>🤖 AI-Powered Threat Detection</h2>
+    <p class="subtext">
+      Our intelligent threat detection system leverages AI and machine learning to spot anomalies, stop intrusions, and adapt to new attack methods—providing proactive security for enterprises.
+    </p>
+
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Behavioral Analysis</h3>
+        <p>
+          AI continuously learns from user and system behavior to detect subtle anomalies that traditional signature-based systems miss. This allows early detection of insider threats, data leaks, and compromised credentials before major damage occurs.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Machine Learning Models</h3>
+        <p>
+          Both supervised and unsupervised machine learning techniques are used to identify emerging patterns, unknown malware, and advanced persistent threats (APTs). Models improve over time as they ingest more telemetry data, reducing false positives.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Real-Time Alerting</h3>
+        <p>
+          Instantly notifies your security team when suspicious activity is detected, allowing for immediate action. Alerts include severity scoring, threat category, affected systems, and suggested response steps—all delivered in real-time.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Threat Scoring</h3>
+        <p>
+          AI assigns a dynamic risk score to each event based on behavior patterns, asset criticality, and historical data. This helps prioritize response actions and reduces alert fatigue by focusing attention on high-impact threats.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Threat Hunting Automation</h3>
+        <p>
+          Augments human analysts with automated threat hunting capabilities. AI suggests investigative paths, correlates logs, and surfaces suspicious behavior chains, drastically reducing time spent on manual searches.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Global Threat Intelligence</h3>
+        <p>
+          Correlates local network activity with global intelligence feeds to detect zero-day vulnerabilities and coordinated attack campaigns. AI adapts detection logic based on threat actor trends and evolving malware signatures.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Data Security Solutions. All rights reserved.
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>

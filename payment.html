@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Secure Payment | DataSecure AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -69,34 +68,35 @@
 
   <script>
     document.getElementById('payNow').addEventListener('click', () => {
-      const amountInput = document.getElementById('amountInput').value;
+      const amount = document.getElementById('amountInput').value;
       const email = document.getElementById('userEmail').value;
 
-      if (!amountInput || amountInput <= 0 || !email) {
+      if (!amount || amount <= 0 || !email) {
         alert("Please enter a valid email and amount.");
         return;
       }
 
-      const options = {
-        key: "rzp_test_YourKeyHere", // 🟡 Replace with your Razorpay Test API Key
-        amount: amountInput * 100, // amount in paise
-        currency: "INR",
-        name: "DataSecure AI Services",
-        description: "Secure Payment for AI Services",
-        prefill: {
-          email: email
+      fetch('generate_payment_link.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
-        handler: function (response) {
-          alert(`✅ Payment Successful!\nPayment ID: ${response.razorpay_payment_id}`);
-          // You can redirect or send to backend for confirmation here
-        },
-        theme: {
-          color: "#2e7d32"
+        body: `email=${encodeURIComponent(email)}&amount=${encodeURIComponent(amount)}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.short_url) {
+          alert(`✅ Payment link sent to ${email}`);
+          window.location.href = data.short_url; // Redirect to Razorpay payment page
+        } else {
+          alert("❌ Failed to generate payment link.");
+          console.error(data);
         }
-      };
-
-      const rzp = new Razorpay(options);
-      rzp.open();
+      })
+      .catch(err => {
+        alert("❌ Server error.");
+        console.error(err);
+      });
     });
   </script>
 </body>

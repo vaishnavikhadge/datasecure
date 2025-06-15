@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6fa;
+    }
+
+    .header {
+      background-color: #2f855a;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logout {
+      background: #e53e3e;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      flex: 1;
+      min-width: 220px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #2f855a;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .section {
+      margin-top: 3rem;
+    }
+
+    canvas {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome, Sanika 👋</h1>
+    <a class="logout" href="logout.php">Logout</a>
+  </div>
+
+  <div class="container">
+    <div class="cards">
+      <div class="card">
+        <h3>🔐 Security Level</h3>
+        <div class="value" data-target="100">0%</div>
+      </div>
+      <div class="card">
+        <h3>📁 Data Secured</h3>
+        <div class="value" data-target="1240">0</div>
+      </div>
+      <div class="card">
+        <h3>📊 Account Health</h3>
+        <div class="value" data-target="95">0%</div>
+      </div>
+      <div class="card">
+        <h3>⚠️ Alerts</h3>
+        <div class="value" data-target="0">0</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📈 Weekly User Activity</h2>
+      <canvas id="activityChart" height="100"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Counter animation
+    const counters = document.querySelectorAll('.value');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText.replace('%', '');
+
+        const increment = target / 60; // speed
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment) + (target <= 100 ? '%' : '');
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target + (target <= 100 ? '%' : '');
+        }
+      };
+      updateCount();
+    });
+
+    // Chart.js setup
+    const ctx = document.getElementById('activityChart').getContext('2d');
+    const activityChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Login Sessions',
+          data: [3, 5, 2, 6, 4, 7, 5],
+          backgroundColor: 'rgba(47, 133, 90, 0.2)',
+          borderColor: '#2f855a',
+          borderWidth: 3,
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#2f855a',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

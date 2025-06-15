@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Automated Incident Response</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #eef3f9;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 3rem;
+      text-align: center;
+      color: #1a1a40;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .section p.subtext {
+      text-align: center;
+      font-size: 1.25rem;
+      color: #444;
+      max-width: 850px;
+      margin: 0 auto 50px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 30px 25px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #183153;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      display: none;
+      margin-top: 10px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .card.active p {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .stats-section {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 60px 20px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .stat-box {
+      flex: 1;
+      min-width: 200px;
+      margin: 20px;
+    }
+
+    .stat-box h3 {
+      font-size: 3rem;
+      color: #1a1a40;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .stat-box p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      background: #1d3557;
+      color: white;
+      padding: 30px;
+      font-size: 1.05rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .section h2 {
+        font-size: 2.2rem;
+      }
+
+      .section p.subtext {
+        font-size: 1.05rem;
+      }
+
+      .card h3 {
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        font-size: 1rem;
+      }
+
+      .stat-box h3 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Automated Incident Response Section -->
+  <section class="section">
+    <h2>⚠️ Automated Incident Response</h2>
+    <p class="subtext">
+      React faster than ever with AI-driven automated incident response that detects, analyzes, and mitigates threats in real-time—reducing dwell time and manual workload.
+    </p>
+
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Real-Time Threat Containment</h3>
+        <p>Automatically isolates affected systems or users upon detecting a breach or anomaly, preventing lateral movement and data exfiltration.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>AI-Driven Playbooks</h3>
+        <p>Leverages dynamic, adaptive playbooks to choose the best course of action based on the type, severity, and context of the incident.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Automatic Remediation</h3>
+        <p>Executes predefined remediation steps like killing malicious processes, blocking IPs, and revoking tokens without human intervention.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Threat Intelligence Integration</h3>
+        <p>Enhances response accuracy by correlating incidents with global threat intel feeds to detect zero-day attacks and APTs quickly.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Incident Workflow Orchestration</h3>
+        <p>Connects with ticketing systems, Slack, Teams, or SIEM tools to notify, log, and track incidents from detection to resolution automatically.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Self-Healing Systems</h3>
+        <p>Monitors critical systems for abnormal behavior and triggers automated rollback, restart, or patching processes when needed.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Post-Incident Reporting</h3>
+        <p>Generates comprehensive post-mortem reports, highlighting response actions, timing, effectiveness, and compliance status.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section stats-section">
+    <h2>📊 Impact in Numbers</h2>
+    <p class="subtext">Our automated response system delivers unmatched speed, accuracy, and protection—trusted across industries.</p>
+
+    <div class="stats-container">
+      <div class="stat-box">
+        <h3 class="counter" data-target="12400">0</h3>
+        <p>Incidents Resolved</p>
+      </div>
+      <div class="stat-box">
+        <h3 class="counter" data-target="2.3">0</h3>
+        <p>Avg. Response Time (sec)</p>
+      </div>
+      <div class="stat-box">
+        <h3 class="counter" data-target="98.7">0</h3>
+        <p>Breach Prevention Rate (%)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Data Security Solutions. All rights reserved.
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle("active");
+    }
+
+    // Counter animation on scroll
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      const trigger = window.innerHeight;
+
+      counters.forEach(counter => {
+        const rect = counter.getBoundingClientRect();
+        if (!counter.dataset.animated && rect.top < trigger) {
+          const target = +counter.getAttribute('data-target');
+          const isFloat = target % 1 !== 0;
+          const step = isFloat ? 0.1 : Math.ceil(target / 100);
+          let current = 0;
+          const update = () => {
+            current += step;
+            if (current >= target) {
+              counter.innerText = target;
+              counter.dataset.animated = "true";
+            } else {
+              counter.innerText = isFloat ? current.toFixed(1) : Math.floor(current);
+              requestAnimationFrame(update);
+            }
+          };
+          update();
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateCounters);
+  </script>
+
+</body>
+</html>

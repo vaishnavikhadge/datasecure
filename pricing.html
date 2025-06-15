@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI-Based Service Pricing</title>
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f9f8;
@@ -53,9 +51,7 @@
       border-left: 5px solid #2e7d32;
       transition: background-color 0.3s ease;
     }
-    .service-item:hover {
-      background: #c8e6c9;
-    }
+    .service-item:hover { background: #c8e6c9; }
     .service-label {
       display: flex;
       align-items: center;
@@ -77,9 +73,7 @@
       color: #2e7d32;
       font-weight: 600;
     }
-    .qty-wrapper label {
-      font-size: 1rem;
-    }
+    .qty-wrapper label { font-size: 1rem; }
     .qty-input {
       width: 60px;
       padding: 6px 8px;
@@ -107,8 +101,6 @@
       margin-top: 2rem;
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
     }
     .cta button {
       background-color: #2e7d32;
@@ -127,30 +119,17 @@
       cursor: not-allowed;
       box-shadow: none;
     }
-    .cta button:hover:not(:disabled) {
-      background-color: #1b5e20;
-    }
-    input, textarea {
-      font-size: 1rem;
-    }
-    textarea {
-      resize: vertical;
-    }
+    .cta button:hover:not(:disabled) { background-color: #1b5e20; }
+
     @media (max-width: 600px) {
       .service-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.6rem;
       }
-      .price-tag {
-        text-align: left;
-      }
-      .cta {
-        flex-direction: column;
-      }
-      .cta button {
-        width: 100%;
-      }
+      .price-tag { text-align: left; }
+      .cta { flex-direction: column; }
+      .cta button { width: 100%; }
     }
   </style>
 </head>
@@ -160,7 +139,7 @@
     <p class="description">Choose your AI-based cybersecurity services and get an instant cost estimate.</p>
 
     <form id="pricingForm" autocomplete="off">
-      <!-- AI-Based Services -->
+      <!-- Example Services -->
       <div class="service-item">
         <label class="service-label">
           <input type="checkbox" data-price="1500" />
@@ -176,8 +155,7 @@
       <div class="service-item">
         <label class="service-label">
           <input type="checkbox" data-price="2000" />
-          <br>Automated Incident</br>
-          Response
+          Automated Incident Response
         </label>
         <div class="qty-wrapper">
           <label>Qty:</label>
@@ -210,69 +188,122 @@
         <div class="price-tag">₹1,200 / batch</div>
       </div>
 
-      <div class="service-item">
-        <label class="service-label">
-          <input type="checkbox" data-price="1800" />
-          User Behavior Analytics (UBA)
-        </label>
-        <div class="qty-wrapper">
-          <label>Qty:</label>
-          <input type="number" min="1" value="1" class="qty-input" disabled />
-        </div>
-        <div class="price-tag">₹1,800 / user</div>
-      </div>
+      <!-- Paste this inside <form id="pricingForm" autocomplete="off"> -->
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="1800" />
+    Cloud Threat Intelligence
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹1,800 / cloud node</div>
+</div>
 
-      <div class="service-item">
-        <label class="service-label">
-          <input type="checkbox" data-price="1000" />
-          Access Risk Scoring
-        </label>
-        <div class="qty-wrapper">
-          <label>Qty:</label>
-          <input type="number" min="1" value="1" class="qty-input" disabled />
-        </div>
-        <div class="price-tag">₹1,000 / 100 accesses</div>
-      </div>
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="2200" />
+    AI-Based Firewall Optimization
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹2,200 / device</div>
+</div>
 
-      <div class="service-item">
-        <label class="service-label">
-          <input type="checkbox" data-price="800" />
-          Smart Backup Verifier
-        </label>
-        <div class="qty-wrapper">
-          <label>Qty:</label>
-          <input type="number" min="1" value="1" class="qty-input" disabled />
-        </div>
-        <div class="price-tag">₹800 / backup</div>
-      </div>
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="2500" />
+    Real-Time Ransomware Shield
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹2,500 / endpoint</div>
+</div>
 
-      <div class="service-item">
-        <label class="service-label">
-          <input type="checkbox" data-price="1000" />
-          AI Security Training Bot
-        </label>
-        <div class="qty-wrapper">
-          <label>Qty:</label>
-          <input type="number" min="1" value="1" class="qty-input" disabled />
-        </div>
-        <div class="price-tag">₹1,000 / session</div>
-      </div>
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="1900" />
+    Fraud Detection Engine
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹1,900 / integration</div>
+</div>
 
-      <!-- User Details -->
-      <label for="userEmail"><strong>Email:</strong></label>
-      <input type="email" id="userEmail" required placeholder="your@email.com" style="padding: 0.8rem; border: 2px solid #81c784; border-radius: 6px;" />
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="1600" />
+    Data Leak Prevention AI
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹1,600 / policy</div>
+</div>
 
-      <label for="notes"><strong>Additional Notes (optional):</strong></label>
-      <textarea id="notes" rows="4" placeholder="Any specific needs or questions?" style="padding: 0.8rem; border: 2px solid #81c784; border-radius: 6px;"></textarea>
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="1300" />
+    Smart Audit Trail Generator
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹1,300 / month</div>
+</div>
 
-      <label for="promoCode"><strong>Promo Code:</strong></label>
-      <input type="text" id="promoCode" placeholder="Enter promo code" style="padding: 0.8rem; border: 2px solid #81c784; border-radius: 6px;" />
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="1750" />
+    Cyber Risk Scoring Engine
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹1,750 / asset</div>
+</div>
 
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="2100" />
+    Insider Threat Prediction
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹2,100 / user group</div>
+</div>
+
+<div class="service-item">
+  <label class="service-label">
+    <input type="checkbox" data-price="1400" />
+    Compliance Monitoring AI
+  </label>
+  <div class="qty-wrapper">
+    <label>Qty:</label>
+    <input type="number" min="1" value="1" class="qty-input" disabled />
+  </div>
+  <div class="price-tag">₹1,400 / standard</div>
+</div>
+
+
+      <!-- Total Price -->
       <div id="totalPrice">Total Estimated Price: ₹0</div>
 
+      <!-- CTA Button -->
       <div class="cta">
-        <button type="button" id="requestQuoteBtn">Request Quote</button>
-        <button type="button" id="paymentBtn" disabled>Proceed to Payment</button>
+        <a href="payment.html"><button type="button" id="paymentBtn" disabled>Proceed to Payment</button></a>
       </div>
     </form>
   </div>
@@ -281,20 +312,18 @@
     const form = document.getElementById('pricingForm');
     const totalPriceDiv = document.getElementById('totalPrice');
     const paymentBtn = document.getElementById('paymentBtn');
-    const requestQuoteBtn = document.getElementById('requestQuoteBtn');
     const services = form.querySelectorAll('.service-item');
 
     function animatePrice(from, to) {
-      let current = from;
-      const step = (to - from) / 20;
+      const frames = 20;
+      let count = 0;
+      const step = (to - from) / frames;
+
       const interval = setInterval(() => {
-        current += step;
-        if ((step > 0 && current >= to) || (step < 0 && current <= to)) {
-          totalPriceDiv.textContent = `Total Estimated Price: ₹${to.toLocaleString()}`;
-          clearInterval(interval);
-        } else {
-          totalPriceDiv.textContent = `Total Estimated Price: ₹${Math.round(current).toLocaleString()}`;
-        }
+        count++;
+        const value = Math.round(from + step * count);
+        totalPriceDiv.textContent = `Total Estimated Price: ₹${value.toLocaleString()}`;
+        if (count >= frames) clearInterval(interval);
       }, 20);
     }
 
@@ -310,14 +339,9 @@
         }
       });
 
-      const promo = document.getElementById('promoCode').value.trim();
-      let discount = 0;
-      if (promo === 'SECURE10') discount = total * 0.10;
-      if (promo === 'SAVE20') discount = total * 0.20;
-
-      const final = total - discount;
-      animatePrice(parseInt(totalPriceDiv.textContent.replace(/[^\d]/g, '')) || 0, final);
-      paymentBtn.disabled = final === 0;
+      const current = parseInt(totalPriceDiv.textContent.replace(/[^\d]/g, '')) || 0;
+      animatePrice(current, total);
+      paymentBtn.disabled = total === 0;
     }
 
     services.forEach(item => {
@@ -338,21 +362,12 @@
       });
     });
 
-    requestQuoteBtn.addEventListener('click', () => {
-      const email = document.getElementById('userEmail').value;
-      if (!email.trim()) {
-        alert("Please enter your email address.");
-        return;
-      }
-      alert("Thank you! Your quote has been submitted.");
-    });
-
     paymentBtn.addEventListener('click', () => {
       alert("Redirecting to payment...");
-      // Add real payment logic here
     });
 
-    calculateTotal();
+    calculateTotal(); // initial setup
   </script>
 </body>
 </html>
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intelligent Access Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f6faff;
+      color: #1b1b1b;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 3.2rem;
+      text-align: center;
+      color: #0c1f38;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .section p.subtext {
+      text-align: center;
+      font-size: 1.4rem;
+      color: #333;
+      max-width: 850px;
+      margin: 0 auto 50px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 35px 30px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      color: #0f2a4f;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 1.25rem;
+      display: none;
+      margin-top: 12px;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .card.active p {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .footer {
+      text-align: center;
+      background: #14294a;
+      color: white;
+      padding: 35px;
+      font-size: 1.2rem;
+      margin-top: 70px;
+    }
+
+    @media (max-width: 768px) {
+      .section h2 {
+        font-size: 2.5rem;
+      }
+
+      .section p.subtext {
+        font-size: 1.2rem;
+      }
+
+      .card h3 {
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        font-size: 1.05rem;
+      }
+
+      .footer {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Intelligent Access Management Section -->
+  <section class="section">
+    <h2>🛡️ Intelligent Access Management</h2>
+    <p class="subtext">
+      Protect your enterprise by controlling, monitoring, and intelligently automating access to systems, data, and applications—using AI-powered identity governance.
+    </p>
+
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>AI-Driven Identity Verification</h3>
+        <p>
+          Authenticate users using advanced biometrics, behavior-based analysis, and adaptive MFA. Reduce fraud and account takeovers while ensuring smooth user experiences.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Role-Based & Just-in-Time Access</h3>
+        <p>
+          Grant temporary access based on roles, projects, and risk levels. Automatically revoke unnecessary permissions to minimize attack surfaces and enforce least privilege.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Access Anomaly Detection</h3>
+        <p>
+          Detect suspicious login patterns, excessive privileges, and unauthorized resource access. AI flags and blocks access in real-time for high-risk activity.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Automated Provisioning</h3>
+        <p>
+          Onboard and offboard users automatically with predefined access templates. Eliminate manual errors and accelerate employee productivity securely from day one.
+        </p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Centralized Access Audit</h3>
+        <p>
+          Gain visibility into who accessed what, when, and why. Easily generate compliance-ready audit logs and reports for internal reviews or external regulations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Data Security Solutions. All rights reserved.
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>

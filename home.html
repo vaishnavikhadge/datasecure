@@ -16,174 +16,7 @@
  
 
   <script defer src="script.js"></script> <!-- External JS -->
-  <style>
-  /* Italic text replacement for <i> */
-  .italic-text {
-  font-style: italic;
-  }
- 
-
-  /* Search bar container and form */
-  .search-bar-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 2rem auto;
-  display: flex;
-  justify-content: center;
-  }
- 
-
-  .search-form {
-  width: 100%;
-  display: flex;
-  border: 2px solid #4caf50;
-  border-radius: 30px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
- 
-
-  .search-form input[type="search"] {
-  flex-grow: 1;
-  padding: 0.75rem 1.25rem;
-  font-size: 1.1rem;
-  border: none;
-  outline: none;
-  border-radius: 30px 0 0 30px;
-  }
- 
-
-  .search-form button {
-  background: #4caf50;
-  border: none;
-  padding: 0 1.5rem;
-  cursor: pointer;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 0 30px 30px 0;
-  transition: background-color 0.3s ease;
-  }
- 
-
-  .search-form button:hover,
-  .search-form button:focus {
-  background: #388e3c;
-  outline: none;
-  }
- 
-
-  /* Smooth scroll for anchor links */
-  html {
-  scroll-behavior: smooth;
-  }
- 
-
-  /* Back to top button */
-  #back-to-top {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  background: #4caf50;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  z-index: 1000;
-  }
- 
-
-  #back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  }
- 
-
-  #back-to-top:hover,
-  #back-to-top:focus {
-  background: #388e3c;
-  outline: none;
-  }
- 
-
-  /* Keyboard focus visible */
-  a:focus,
-  button:focus,
-  input:focus {
-  outline: 3px solid #4caf50;
-  outline-offset: 2px;
-  }
- 
-
-  /* Dropdown Menu Styles */
-  .dropdown-toggle {
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  }
- 
-
-  .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 0.5rem 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  display: none; /* Hidden by default */
-  min-width: 160px;
-  }
- 
-
-  .dropdown-menu a {
-  color: #333;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  display: block;
-  transition: background-color 0.2s ease;
-  }
- 
-
-  .dropdown-menu a:hover {
-  background-color: #e9e9e9;
-  }
- 
-
-  /* Show the dropdown menu on hover */
-  .dropdown-toggle:hover + .dropdown-menu,
-  .dropdown-menu:hover {
-  display: block;
-  }
- 
-
-  /* Mobile-Friendly Dropdown */
-  @media (max-width: 768px) {
-  .dropdown-menu {
-  position: static;
-  border: none;
-  box-shadow: none;
-  display: none; /* Initially hidden */
-  }
- 
-
-  .dropdown-toggle:hover + .dropdown-menu,
-  .dropdown-menu:hover {
-  display: block; /* Show on hover */
-  }
-  }
-  </style>
- </head>
- <body>
- 
+  
 
   <!-- Navigation Bar -->
   <header>
@@ -197,23 +30,25 @@
  
 
   <nav class="nav" aria-label="Main navigation">
-  <a href="#features" class="dropdown-toggle">Features</a>
-  <div class="dropdown-menu">
-  <a href="#ai-detection">AI Threat Detection</a>
-  <a href="#encryption">End-to-End Encryption</a>
-  <a href="#compliance">Data Compliance Tools</a>
-  <a href="#monitoring">Real-Time Monitoring</a>
+  <a href="#features" class="dropdown-toggle" id="dropdownToggle">Features</a>
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="#ai-detection">AI Threat Detection</a>
+    <a href="#encryption">End-to-End Encryption</a>
+    <a href="#compliance">Data Compliance Tools</a>
+    <a href="#monitoring">Real-Time Monitoring</a>
   </div>
   <a href="#services">Services</a>
   <a href="pricing.html">Pricing</a>
-  <a href="#innovative-features">Features</a>
-  </nav>
- 
+  <a href="contact.html">Contact</a>
+</nav>
+
+   
+
 
   <a href="login.html" class="btn-login" role="button">Login</a>
   </header>
  
-
+  
   <!-- Search Bar Section -->
   <div class="search-bar-container" role="search" aria-label="Site search">
   <form action="searchbar.html" method="get" class="search-form">
@@ -265,7 +100,7 @@
   <i class="fas fa-shield-alt fa-3x"></i>
   <h3>AI-Powered Threat Detection & Prevention</h3>
   <p>Leverages machine learning models to continuously monitor network traffic and user behavior, detecting anomalies and potential cyber threats in real time. This proactive defense helps prevent attacks such as phishing, ransomware, and insider threats before they cause damage.</p>
-  <a href="https://www.cisco.com/c/en/us/products/security/advanced-malware-protection/index.html" target="_blank" rel="noopener noreferrer" aria-label="Learn more about AI-Powered Threat Detection & Prevention">Learn More</a>
+  <a href="threat.html" target="_blank" rel="noopener noreferrer" aria-label="Learn more about AI-Powered Threat Detection & Prevention">Learn More</a>
   </div>
  
 
@@ -273,7 +108,7 @@
   <i class="fas fa-key fa-3x"></i>
   <h3>Intelligent Access Management</h3>
   <p>Uses AI algorithms to dynamically control and adapt user access privileges based on behavior analysis and risk assessment. Features include multi-factor authentication, biometric recognition, and context-aware access controls that reduce unauthorized entry risks.</p>
-  <a href="https://www.okta.com/solutions/identity-access-management/" target="_blank" rel="noopener noreferrer" aria-label="Learn more about Intelligent Access Management">Learn More</a>
+  <a href="access.html" target="_blank" rel="noopener noreferrer" aria-label="Learn more about Intelligent Access Management">Learn More</a>
   </div>
  
 
@@ -281,7 +116,7 @@
   <i class="fas fa-exclamation-triangle fa-3x"></i>
   <h3>Automated Incident Response</h3>
   <p>Leverage AI to automate security workflows and rapidly mitigate threats, reducing manual effort and response time.</p>
-  <a href="https://www.paloaltonetworks.com/cortex/xsoar" target="_blank" rel="noopener noreferrer" aria-label="Learn more about Automated Incident Response">Learn More</a>
+  <a href="incident.html" target="_blank" rel="noopener noreferrer" aria-label="Learn more about Automated Incident Response">Learn More</a>
   </div>
   </div>
   </div>
@@ -363,7 +198,7 @@
   <li><a href="#features">Features</a></li>
   <li><a href="#services">Services</a></li>
   <li><a href="pricing.html">Pricing</a></li>
-  <li><a href="#innovative-features">Features</a></li>
+  <li><a href="contact.html">contact</a></li>
   <li><a href="policy.html">Cookie Policy</a></li>
   </ul>
   </div>
@@ -382,7 +217,6 @@
   <p>&copy; 2025 Data Security Solutions. All rights reserved.</p>
   </div>
   </footer>
- 
+ Features
 
-  <!--css js
  

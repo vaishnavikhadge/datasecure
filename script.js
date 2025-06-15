@@ -71,4 +71,24 @@ window.addEventListener('load', () => {
     input.value = "";
   }
 
+  function setupDropdown(toggleId, menuId) {
+    const toggle = document.getElementById(toggleId);
+    const menu = document.getElementById(menuId);
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      menu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  }
+
+  // Call the function for your dropdown
+  setupDropdown('dropdownToggle', 'dropdownMenu');
+
+
   

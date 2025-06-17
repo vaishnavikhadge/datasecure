@@ -303,71 +303,88 @@
 
       <!-- CTA Button -->
       <div class="cta">
-        <a href="payment.html"><button type="button" id="paymentBtn" disabled>Proceed to Payment</button></a>
+        <button type="button" id="paymentBtn" disabled>Proceed to Payment</button>
       </div>
     </form>
   </div>
 
   <script>
-    const form = document.getElementById('pricingForm');
-    const totalPriceDiv = document.getElementById('totalPrice');
-    const paymentBtn = document.getElementById('paymentBtn');
-    const services = form.querySelectorAll('.service-item');
+  const form = document.getElementById('pricingForm');
+  const totalPriceDiv = document.getElementById('totalPrice');
+  const paymentBtn = document.getElementById('paymentBtn');
+  const services = form.querySelectorAll('.service-item');
 
-    function animatePrice(from, to) {
-      const frames = 20;
-      let count = 0;
-      const step = (to - from) / frames;
+  // Animate price transition
+  function animatePrice(from, to) {
+    const frames = 20;
+    let count = 0;
+    const step = (to - from) / frames;
 
-      const interval = setInterval(() => {
-        count++;
-        const value = Math.round(from + step * count);
-        totalPriceDiv.textContent = `Total Estimated Price: ₹${value.toLocaleString()}`;
-        if (count >= frames) clearInterval(interval);
-      }, 20);
-    }
+    const interval = setInterval(() => {
+      count++;
+      const value = Math.round(from + step * count);
+      totalPriceDiv.textContent = `Total Estimated Price: ₹${value.toLocaleString()}`;
+      if (count >= frames) clearInterval(interval);
+    }, 20);
+  }
 
-    function calculateTotal() {
-      let total = 0;
-      services.forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        const qtyInput = item.querySelector('.qty-input');
-        if (checkbox.checked) {
-          const price = parseInt(checkbox.dataset.price);
-          const qty = parseInt(qtyInput.value) || 1;
-          total += price * qty;
-        }
-      });
-
-      const current = parseInt(totalPriceDiv.textContent.replace(/[^\d]/g, '')) || 0;
-      animatePrice(current, total);
-      paymentBtn.disabled = total === 0;
-    }
-
+  // Calculate total price from selected services
+  function calculateTotal() {
+    let total = 0;
     services.forEach(item => {
       const checkbox = item.querySelector('input[type="checkbox"]');
-      const qtyWrapper = item.querySelector('.qty-wrapper');
       const qtyInput = item.querySelector('.qty-input');
-
-      checkbox.addEventListener('change', () => {
-        qtyWrapper.style.display = checkbox.checked ? 'flex' : 'none';
-        qtyInput.disabled = !checkbox.checked;
-        if (!checkbox.checked) qtyInput.value = 1;
-        calculateTotal();
-      });
-
-      qtyInput.addEventListener('input', () => {
-        if (parseInt(qtyInput.value) < 1 || isNaN(qtyInput.value)) qtyInput.value = 1;
-        calculateTotal();
-      });
+      if (checkbox.checked) {
+        const price = parseInt(checkbox.dataset.price);
+        const qty = parseInt(qtyInput.value) || 1;
+        total += price * qty;
+      }
     });
 
-    paymentBtn.addEventListener('click', () => {
-      alert("Redirecting to payment...");
+    const current = parseInt(totalPriceDiv.textContent.replace(/[^\d]/g, '')) || 0;
+    animatePrice(current, total);
+    paymentBtn.disabled = total === 0;
+  }
+
+  // Event listeners for checkboxes and quantity inputs
+  services.forEach(item => {
+    const checkbox = item.querySelector('input[type="checkbox"]');
+    const qtyWrapper = item.querySelector('.qty-wrapper');
+    const qtyInput = item.querySelector('.qty-input');
+
+    checkbox.addEventListener('change', () => {
+      qtyWrapper.style.display = checkbox.checked ? 'flex' : 'none';
+      qtyInput.disabled = !checkbox.checked;
+      if (!checkbox.checked) qtyInput.value = 1;
+      calculateTotal();
     });
 
-    calculateTotal(); // initial setup
-  </script>
+    qtyInput.addEventListener('input', () => {
+      if (parseInt(qtyInput.value) < 1 || isNaN(qtyInput.value)) qtyInput.value = 1;
+      calculateTotal();
+    });
+  });
+
+  // Handle Proceed to Payment button click
+  paymentBtn.addEventListener('click', () => {
+    let total = 0;
+    services.forEach(item => {
+      const checkbox = item.querySelector('input[type="checkbox"]');
+      const qtyInput = item.querySelector('.qty-input');
+      if (checkbox.checked) {
+        const price = parseInt(checkbox.dataset.price);
+        const qty = parseInt(qtyInput.value) || 1;
+        total += price * qty;
+      }
+    });
+
+    // Redirect to payment.html with amount passed as URL parameter
+    window.location.href = `payment.html?amount=${total}`;
+  });
+
+  calculateTotal(); // Initial setup
+</script>
+
 </body>
 </html>
 

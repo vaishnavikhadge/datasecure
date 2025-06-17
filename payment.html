@@ -61,43 +61,26 @@
 <body>
   <div class="payment-box">
     <h1>Complete Your Payment</h1>
-    <input type="email" id="userEmail" placeholder="Enter your email" required />
-    <input type="number" id="amountInput" placeholder="Amount (INR)" min="1" required />
-    <button id="payNow">Pay Now</button>
+    <form action="pay.php" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <input type="number" name="amount" placeholder="Amount (INR)" min="1" required />
+      <button type="submit">Pay Now</button>
+    </form>
   </div>
 
   <script>
-    document.getElementById('payNow').addEventListener('click', () => {
-      const amount = document.getElementById('amountInput').value;
-      const email = document.getElementById('userEmail').value;
+  // Get ?amount= from pricing.html
+  const params = new URLSearchParams(window.location.search);
+  const amount = params.get("amount");
 
-      if (!amount || amount <= 0 || !email) {
-        alert("Please enter a valid email and amount.");
-        return;
-      }
+  if (amount) {
+    document.querySelector('input[name="amount"]').value = amount;
+    amountInput.value = amount;
+    amountInput.readOnly = true;
+  } else {
+    alert("No amount received from pricing page!");
+  }
+</script>
 
-      fetch('generate_payment_link.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `email=${encodeURIComponent(email)}&amount=${encodeURIComponent(amount)}`
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.short_url) {
-          alert(`✅ Payment link sent to ${email}`);
-          window.location.href = data.short_url; // Redirect to Razorpay payment page
-        } else {
-          alert("❌ Failed to generate payment link.");
-          console.error(data);
-        }
-      })
-      .catch(err => {
-        alert("❌ Server error.");
-        console.error(err);
-      });
-    });
-  </script>
 </body>
 </html>

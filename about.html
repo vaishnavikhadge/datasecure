@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us | DataSecure AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f2027;
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+      animation: fadeInUp 1s ease;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 250px;
+      text-align: center;
+      transition: 0.4s ease;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #90ee90;
+    }
+
+    .counter {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #00e676;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>We Are DataSecure AI</h1>
+    <p>Protecting Your Data with Smart AI.</p>
+  </header>
+
+  <div class="cards">
+    <div class="card">
+      <h2>🧠 AI Models</h2>
+      <div class="counter" data-target="12">3</div>
+    </div>
+
+    <div class="card">
+      <h2>🛡️ Threats Blocked</h2>
+      <div class="counter" data-target="8743">0</div>
+    </div>
+
+    <div class="card">
+      <h2>🌐 Clients Secured</h2>
+      <div class="counter" data-target="158">0</div>
+    </div>
+
+    <div class="card">
+      <h2>🚀 Uptime</h2>
+      <div class="counter" data-target="99.9">0%</div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 DataSecure AI. All rights reserved.
+  </footer>
+
+  <script>
+    // Count up animation
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const current = parseFloat(counter.innerText.replace('%', ''));
+        const increment = (target - current) / 50;
+
+        if (current < target) {
+          counter.innerText = (current + increment).toFixed(0) + (counter.innerText.includes('%') ? '%' : '');
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target + (counter.innerText.includes('%') ? '%' : '');
+        }
+      };
+
+      updateCount();
+    });
+  </script>
+</body>
+</html>
